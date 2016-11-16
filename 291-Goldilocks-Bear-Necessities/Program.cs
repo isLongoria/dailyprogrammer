@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace _291_Goldilock_s_Bear_Necessities
 {
@@ -48,30 +44,13 @@ namespace _291_Goldilock_s_Bear_Necessities
 
             int weight = input[0, 0];
             int maxTemp = input[0, 1];
-            List<int> validWeights = new List<int>();
-            List<int> validTemps = new List<int>();
 
             for (int i = 1; i < input.Length / 2; i++)
             {
-                if (input[i, 0] > weight)
-                    validWeights.Add(i);
+                if (input[i, 0] > weight && input[i, 1] < maxTemp)
+                    Console.Write(i + " ");
             }
-
-            if (validWeights.Count() > 0)
-            {
-                for (int i = 0; i < validWeights.Count(); i++)
-                {
-                    if (input[validWeights[i], 1] < maxTemp)
-                        validTemps.Add(validWeights[i]);
-                }
-            }
-
-            if (validTemps.Count() > 0)
-                foreach (int i in validTemps)
-                {
-                    Console.WriteLine(i);
-                }
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
